@@ -1,0 +1,22 @@
+
+{% load staticfiles %}
+ <html>
+        <head>
+            <title>Поиск</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    		<link href="https://fonts.googleapis.com/css?family=Verdana&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+        </head>
+        <body>   
+       <form action="http://127.0.0.1:8000/searchtext" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Найти">
+    </form>
+</form>
+            <div id="footer">&copy; <a href = "http://127.0.0.1:8000/users"><u>Список пользователей и их id</u></a></div>
+            <div id="footer">&copy; <a href = "http://127.0.0.1:8000/searchuser"><u>Поиск пользователя</u></a></div>
+<div id="footer">&copy; <a href = "http://127.0.0.1:8000/logout"><u>Выйти</u></a></div>
+   </body>
+    </html>
+ <html>

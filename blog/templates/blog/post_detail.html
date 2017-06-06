@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+        <div class="post">
+
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.content|linebreaksbr }}</p>
+            <p><a href="/postlist/{{post.author.id}}" target="_blank">{{ post.author }}</p>
+            <a href="{% url 'post_edit' pk=post.pk %}">Изменить запись.</a>
+              <a href="{% url 'add_like' pk=post.pk %}">Like</a> {{ post.likes }}
+              <h3><a href="{% url 'post_delete' pk=post.pk %}">Удалить.</a></h3>
+        </div>
+
+    {% with comments.count as total_comments %}
+    <h2>
+        {{ total_comments }} comment{{ total_comments|pluralize }}
+    </h2>
+{% endwith %}
+
+{% for comment in comments %}
+    <div class="comment">
+        <p class="info">
+            Comment {{ forloop.counter }} by {{ comment.name }}
+            {{ comment.created }}
+        </p>
+        {{ comment.body|linebreaks }}
+    </div>
+{% empty %}
+    <p>There are no comments yet.</p>
+{% endfor %}
+
+{% if new_comment %}
+    <h2>Your comment has been added.</h2>
+{% else %}
+    <h2>Add a new comment</h2>
+    <form action="." method="post">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Add comment"></p>
+    </form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load staticfiles %}
+ <html>
+        <head>
+            <title>Django Blog</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    		<link href="https://fonts.googleapis.com/css?family=Verdana&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div class="page-header">
+                <h1><center><a href="/postlist">Blog</a></center></h1>
+                <h2><p align="right"><a href = "http://127.0.0.1:8000/post/new/">Create Post</a></p></h2>
+
+
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div id="footer">&copy; <a href = "http://127.0.0.1:8000/search_text"><u>Поиск по тексту</u></a></div>
+            <div id="footer">&copy; <a href = "http://127.0.0.1:8000/users"><u>Список пользователей и их id</u></a></div>
+            <div id="footer">&copy; <a href = "http://127.0.0.1:8000/searchuser"><u>Поиск пользователя</u></a></div>
+             <div id="footer">&copy; <a href = "http://127.0.0.1:8000/logout"><u>Выйти</u></a></div>
+        </body>
+    </html>
