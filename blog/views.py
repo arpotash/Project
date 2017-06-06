@@ -292,3 +292,7 @@ def searchtext(request):
 
 	else:
 		return render(request, 'unauth.html')
+
+def sort_likes(request): 
+	posts = Post.objects.all().order_by('likes') 
+	return render(request,'blog/post_list.html',{'posts':posts})		

@@ -13,7 +13,7 @@ url(r'^register/$', RegisterFormView.as_view()),
 url(r'^login/$', LoginFormView.as_view()),
 
 url(r'^logout/$', LogoutView.as_view()),
-
+url(r'^sortlikes/$', views.sort_likes, name='sortlikes'),
 url(r'^postlist/$', views.post_list, name='post_list'),
 url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'), ###############
 url(r'^post/new/$', views.post_new, name='post_new'),########################
